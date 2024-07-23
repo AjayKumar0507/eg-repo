@@ -1,0 +1,16 @@
+select b.address , p.year 
+	 from purchases p , ( select b.address from branch b , 
+				( SELECT WA.BRANCH_ID as bwa FROM purchases P , works_at WA WHERE P.EMPL_ID = WA.EMPL_ID) 
+				where b.branch_id = bwa) 
+	where p.; 
+
+
+SELECT pwa.*
+FROM (
+    SELECT *
+    FROM purchases p
+    JOIN works_at wa USING (empl_id)
+) pwa;
+
+
+select b.address from branch b , ( SELECT WA.BRANCH_ID as bwa FROM purchases P , works_at WA WHERE P.EMPL_ID = WA.EMPL_ID) where b.branch_id = bwa ;
